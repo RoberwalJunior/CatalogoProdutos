@@ -4,6 +4,9 @@ namespace CatalogoProdutos.Shared.Application.AutoMapper.Dtos.Produtos;
 
 public class CreateProdutoDto
 {
+    [Required(ErrorMessage = "O Id do Vendedor é obrigatório!")]
+    public int VendedorId { get; set; }
+
     [Required(ErrorMessage = "O Código do produto é obrigatório!")]
     [Range(0, Double.PositiveInfinity, ErrorMessage = "Código do produto invalido!")]
     public int Codigo { get; set; }

@@ -21,8 +21,10 @@ public class CatalogoProdutosApplicationFactory : WebApplicationFactory<Program>
 
         if (produtoExistente == null)
         {
+            var vendedorExistente = await RecuperarUmVendedorJaCadastrado();
             var novoProduto = new Produto()
             {
+                VendedorId = vendedorExistente.Id,
                 Codigo = 1000,
                 Nome = "Produto para teste de API",
                 Descricao = "Produto para teste de API",

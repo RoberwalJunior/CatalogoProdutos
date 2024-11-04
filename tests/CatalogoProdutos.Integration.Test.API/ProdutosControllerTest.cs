@@ -37,9 +37,10 @@ public class ProdutosControllerTest(CatalogoProdutosApplicationFactory app)
     [Fact]
     public async Task POST_Retornar_Status_Ok_Quando_Cadastra_Produto_Com_Exito()
     {
-        //Arrange
+        var vendedorExistente = await _app.RecuperarUmVendedorJaCadastrado();
         var produtoDto = new CreateProdutoDto()
         {
+            VendedorId = vendedorExistente.Id,
             Codigo = 1000,
             Nome = "Produto para teste de API",
             Descricao = "Produto para teste de API",
@@ -48,10 +49,8 @@ public class ProdutosControllerTest(CatalogoProdutosApplicationFactory app)
         };
         using var client = app.CreateClient();
 
-        //act
         var result = await client.PostAsJsonAsync("/api/produtos", produtoDto);
 
-        //Assert
         Assert.NotNull(result);
         Assert.Equal(HttpStatusCode.OK, result.StatusCode);
     }
