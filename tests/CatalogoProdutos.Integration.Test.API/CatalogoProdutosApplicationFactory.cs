@@ -40,4 +40,24 @@ public class CatalogoProdutosApplicationFactory : WebApplicationFactory<Program>
 
         return produtoExistente;
     }
+
+    public async Task<Vendedor> RecuperarUmVendedorJaCadastrado()
+    {
+        var vendedorExistente = _context.Vendedores.FirstOrDefault();
+
+        if (vendedorExistente == null)
+        {
+            var novoVendedor = new Vendedor()
+            {
+                Nome = "Vendedor de Teste"
+            };
+
+            await _context.Vendedores.AddAsync(novoVendedor);
+            await _context.SaveChangesAsync();
+
+            vendedorExistente = novoVendedor;
+        }
+
+        return vendedorExistente;
+    }
 }

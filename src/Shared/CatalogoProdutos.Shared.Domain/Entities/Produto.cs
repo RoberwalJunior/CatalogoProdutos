@@ -27,4 +27,7 @@ public class Produto
     public decimal Valor { get; set; }
 
     public int Quantidade { get; set; }
+
+    public int VendedorId { get; set; }
+    public virtual Vendedor? Vendedor { get; set; }
 }

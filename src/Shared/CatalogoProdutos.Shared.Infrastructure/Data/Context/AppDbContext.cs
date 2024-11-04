@@ -6,6 +6,7 @@ namespace CatalogoProdutos.Shared.Infrastructure.Data.Context;
 public class AppDbContext : DbContext
 {
     public DbSet<Produto> Produtos { get; set; }
+    public DbSet<Vendedor> Vendedores { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
     {

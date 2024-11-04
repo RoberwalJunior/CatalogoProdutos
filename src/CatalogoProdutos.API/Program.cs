@@ -16,10 +16,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddTransient<IVendedorRepository, VendedorRepository>();
 
 builder.Services.AddTransient<IProdutoService, ProdutoService>();
+builder.Services.AddTransient<IVendedorService, VendedorService>();
 
 builder.Services.AddTransient<IProdutoServiceApp, ProdutoServiceApp>();
+builder.Services.AddTransient<IVendedorServiceApp, VendedorServiceApp>();
 builder.Services.AddTransient<IEstoqueServiceApp, EstoqueServiceApp>();
 
 builder.Services.AddControllers();
