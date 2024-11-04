@@ -20,6 +20,7 @@ builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<IProdutoService, ProdutoService>();
 
 builder.Services.AddTransient<IProdutoServiceApp, ProdutoServiceApp>();
+builder.Services.AddTransient<IEstoqueServiceApp, EstoqueServiceApp>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

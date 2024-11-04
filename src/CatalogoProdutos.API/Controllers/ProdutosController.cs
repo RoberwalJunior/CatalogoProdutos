@@ -6,14 +6,9 @@ namespace CatalogoProdutos.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ProdutosController : ControllerBase
+public class ProdutosController(IProdutoServiceApp produtoService) : ControllerBase
 {
-    private readonly IProdutoServiceApp _produtoService;
-
-    public ProdutosController(IProdutoServiceApp produtoService)
-    {
-        _produtoService = produtoService;
-    }
+    private readonly IProdutoServiceApp _produtoService = produtoService;
 
     [HttpGet]
     public async Task<IActionResult> RecuperarListaDeProdutosCadastrados()
